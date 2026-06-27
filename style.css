@@ -17,12 +17,15 @@ a {
 
 img {
   max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: #FFFFFF;
+  min-width: 320px;
 }
 
 @font-face {
@@ -109,6 +112,9 @@ p {
 
 .header_list {
   gap: 85px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .header_items {
@@ -117,8 +123,9 @@ p {
 }
 
 .logo {
+  display: block;
   width: 225px;
-  height: 72px;
+  flex-shrink: 0;
 }
 
 p,
@@ -141,9 +148,7 @@ h2 {
   background-position: center;
   background-size: cover;
   border-radius: 32px;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  padding-left: 80px;
+  padding: 100px 80px;
 }
 
 .hero_header {
@@ -192,7 +197,8 @@ h2 {
 .about_block_2and3 {
   flex-direction: column;
   gap: 31px;
-  width: calc((100% - 30px)/2);
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .about_block_2_paragraph {
@@ -203,10 +209,8 @@ h2 {
 .about_block_2 {
   border: 1px solid #CACACA;
   border-radius: 32px;
-  padding-left: 58px;
-  padding-right: 60px;
-  padding-top: 64px;
-  padding-bottom: 63px;
+  padding: 64px 60px 63px 58px;
+  align-items: center;
 }
 
 .about_header {
@@ -231,17 +235,19 @@ h2 {
   background-position: center;
   background-size: cover;
   border-radius: 32px;
-  padding-top: 426px;
-  width: calc((100% - 30px)/2);
-  margin-right: 32px;
-  align-self: baseline;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 622px;
+  display: flex;
+  align-items: flex-end;
 }
 
 .about_block_1_more {
   padding: 50px;
   border-radius: 32px;
   background-color: rgba(0, 0, 0, 0.5);
-  max-height: 196px;
+  width: 100%;
+  gap: 24px;
   justify-content: space-between;
   align-items: center;
 }
@@ -278,6 +284,7 @@ h2 {
 
 .about_block_2 img {
   margin-right: 50px;
+  flex-shrink: 0;
 }
 
 .about_block_2_text {
@@ -305,6 +312,8 @@ h2 {
 .how_descr {
   flex-direction: column;
   justify-content: space-between;
+  flex: 1 1 48%;
+  min-width: 0;
 }
 
 .how_descr_paragraph {
@@ -335,6 +344,7 @@ h2 {
 
 .how_container {
   justify-content: space-between;
+  gap: 32px;
 }
 
 .how_buttons {
@@ -367,8 +377,16 @@ h2 {
 
 .how_image {
   margin-top: 18px;
-  max-width: 870px;
-  max-height: 460px;
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
+.how_image img {
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+  object-fit: cover;
+  border-radius: 0;
 }
 
 /*FAQ*/
@@ -381,16 +399,14 @@ h2 {
 
 .faq_blocks {
   gap: 32px;
+  flex-wrap: wrap;
 }
 
 .faq_block_1 {
   border: 1px solid #CACACA;
   border-radius: 32px;
-  padding-left: 58px;
-  padding-right: 60px;
-  padding-top: 64px;
-  padding-bottom: 63px;
-  max-width: 569px;
+  padding: 64px 60px 63px 58px;
+  flex: 1 1 320px;
 }
 
 .faq_section_header {
@@ -426,6 +442,7 @@ h2 {
 .footer_sections {
   justify-content: space-between;
   align-items: center;
+  gap: 32px;
 }
 
 .footer_section_item {
@@ -462,7 +479,7 @@ h2 {
 
 .footer_section_form {
   flex-direction: column;
-  padding-left: 133px;
+  width: min(100%, 570px);
 }
 
 .footer_section_form_inputs {
@@ -481,6 +498,7 @@ h2 {
   font-weight: 400;
   line-height: 32px;
   border: none;
+  width: 100%;
 }
 
 .footer_section_form_inputs textarea {
@@ -495,6 +513,8 @@ h2 {
   font-weight: 400;
   line-height: 32px;
   border: none;
+  width: 100%;
+  resize: vertical;
 }
 
 .footer_section_button {
@@ -508,6 +528,12 @@ h2 {
   color: white;
   line-height: 1;
   margin-right: 32px;
+}
+
+.footer_section_buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .form_check {
@@ -554,4 +580,234 @@ input[type="checkbox"]:checked::after {
 
 .footer_section_1 img {
   margin-bottom: 20px;
+}
+
+.footer_logo {
+  display: block;
+  width: 225px;
+}
+
+@media (max-width: 1400px) {
+  .header_list {
+    gap: 32px;
+  }
+
+  .footer_section_3 {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header,
+  .hero,
+  .about,
+  .how,
+  .faq {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .hero_header {
+    font-size: 60px;
+    line-height: 73px;
+  }
+
+  .about_block,
+  .how_container {
+    flex-direction: column;
+  }
+
+  .about_block_1,
+  .about_block_2and3 {
+    width: 100%;
+  }
+
+  .about_block_1 {
+    min-height: 640px;
+  }
+
+  .how_image {
+    order: -1;
+    margin-top: 0;
+  }
+
+  .footer_sections {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    padding: 18px 24px;
+    margin-bottom: 30px;
+  }
+
+  .header_container {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .header_list {
+    justify-content: center;
+    gap: 18px 28px;
+  }
+
+  .hero,
+  .about,
+  .how,
+  .faq {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero_container {
+    padding: 72px 40px;
+  }
+
+  .hero_header {
+    font-size: 44px;
+    line-height: 54px;
+  }
+
+  .hero_text {
+    font-size: 20px;
+    margin-bottom: 54px;
+  }
+
+  .about_block_1 {
+    min-height: 520px;
+  }
+
+  .about_block_1_more {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about_block_2 {
+    padding: 36px;
+  }
+
+  .footer {
+    padding: 50px 24px;
+  }
+
+  .footer_sections {
+    flex-direction: column;
+  }
+
+  .footer_section_list {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .header_list {
+    display: none;
+  }
+
+  .logo,
+  .footer_logo {
+    width: 150px;
+  }
+
+  .hero,
+  .about,
+  .how,
+  .faq {
+    margin-bottom: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .hero_container {
+    border-radius: 16px;
+    padding: 60px 22px;
+    text-align: center;
+  }
+
+  .hero_header {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .hero_text {
+    font-size: 16px;
+    margin-bottom: 36px;
+  }
+
+  .hero_button,
+  .how_button_1,
+  .how_button_2,
+  .about_block_1_button,
+  .footer_section_button {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .about_header,
+  .how_header,
+  .faq_section_header,
+  .footer_section_form_header {
+    font-size: 32px;
+  }
+
+  .about_text,
+  .how_descr_text:not(:last-child),
+  .how_descr_text:last-child,
+  .faq_text,
+  .footer_section_item,
+  .form_check {
+    line-height: 28px;
+  }
+
+  .about_block_1 {
+    min-height: 420px;
+    border-radius: 16px;
+  }
+
+  .about_block_1_more {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .about_block_2 {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .about_block_2 img {
+    width: 90px;
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+
+  .about_block_2_header,
+  .how_descr_header,
+  .faq_header {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0;
+  }
+
+  .how_buttons,
+  .footer_section_buttons {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .how_image img {
+    min-height: 260px;
+  }
+
+  .faq_block_1 {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .footer_section_button {
+    margin-right: 0;
+  }
 }
