@@ -229,6 +229,10 @@ h2 {
   max-width: 1235px;
 }
 
+.about_block {
+  gap: 32px;
+}
+
 .about_block_1 {
   background-image: url(img/Rectangle\ 2.jpg);
   background-repeat: no-repeat;
